@@ -10,15 +10,16 @@ class Alarm:
         self.music_list = {'one': 'media/1.mp3', 'two': 'media/2.mp3',
                            'three': 'media/3.mp3', 'four': 'media/4.mp3'}
 
-    def start_app(self, d, h, m, x):
-
+    def time_equal(self, d, h, m):
         while True:
             time_now = datetime.datetime.now()
-
             if str(time_now.day) == d and str(time_now.hour) == h and str(time_now.minute) == m:
-                self.music_load(x)
-                break
+                return True
             sleep(2)
+
+    def set_alarm(self, d, h, m, x):
+        if self.time_equal(d, h, m) == True:
+            self.music_load(x)
 
     def music_load(self, x):
 
