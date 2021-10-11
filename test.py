@@ -16,11 +16,17 @@ class TestAlarm(unittest.TestCase):
     def test_music_stop(self):
         self.assertEqual(self.ob_alarm.music_stop(), False)
 
-    def test_music_list(self):
+    def test_type_music_list(self):
+        self.assertEqual(type(self.ob_alarm.music_list), dict)
+
+    def test_music_list1(self):
         self.assertEqual(self.ob_alarm.music_list['two'], 'media/2.mp3')
 
+    def test_music_list2(self):
+        self.assertEqual(self.ob_alarm.music_list['three'], 'media/3.mp3')
+
     def test_format_clock(self):
-        self.assertEqual(self.ob_cl.format_clock(), '02:34:57')
+        self.assertEqual(self.ob_cl.format_clock(), '13:26:57')
 
 
 if __name__ == '__main__':
